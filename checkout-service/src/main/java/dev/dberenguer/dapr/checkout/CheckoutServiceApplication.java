@@ -1,0 +1,12 @@
+package dev.dberenguer.dapr.checkout;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CheckoutServiceApplication {
+    public static void main(final String[] args)  {
+        SpringApplication.run(CheckoutServiceApplication.class, args);
+    }
+}
+

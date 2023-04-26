@@ -1,0 +1,7 @@
+server:
+  port: 8081
+
+dberenguer:
+  dapr:
+    state-store:
+      name: state-redis

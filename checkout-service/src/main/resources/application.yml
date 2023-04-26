@@ -1,0 +1,11 @@
+server:
+  port: 8082
+
+dberenguer:
+  dapr:
+    pub-sub:
+      name: pubsub-redis
+      topic:
+        name: orders
+    services:
+      product: product-service

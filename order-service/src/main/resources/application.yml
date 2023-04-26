@@ -1,0 +1,11 @@
+server:
+  port: 8083
+
+dberenguer:
+  dapr:
+    pub-sub:
+      name: pubsub-redis
+      topic:
+        name: orders
+    secret-store:
+      name: secretstores-local

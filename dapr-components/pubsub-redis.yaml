@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub-redis
+
+scopes:
+  - checkout-service
+  - order-service
+
+spec:
+  type: pubsub.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+    secretKeyRef:
+        name: redis-password
+
+auth:
+  secretStore: secretstores-local

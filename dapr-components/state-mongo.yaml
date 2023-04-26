@@ -1,0 +1,21 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: state-mongo
+
+spec:
+  type: state.mongodb
+  version: v1
+  metadata:
+  - name: host
+    value: "localhost:27017"
+  - name: username
+    value: "mongouser"
+  - name: password
+    secretKeyRef:
+        name: mongo-password
+  - name: databaseName
+    value: "admin"
+
+auth:
+  secretStore: secretstores-local

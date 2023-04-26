@@ -1,0 +1,28 @@
+apiVersion: dapr.io/v1alpha1
+kind: Resiliency
+metadata:
+  name: resiliency-apps
+  
+scopes:
+  - checkout-service
+
+spec:
+  policies:
+
+    retries:
+      infiniteRetries:
+        policy: constant
+        duration: 5s
+        maxRetries: -1 
+
+    circuitBreakers:
+      simpleCB:
+        maxRequests: 1
+        timeout: 5s 
+        trip: consecutiveFailures >= 5
+
+  targets:
+    apps:
+      product-service:
+        retry: infiniteRetries
+        circuitBreaker: simpleCB
